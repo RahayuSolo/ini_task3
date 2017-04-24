@@ -1,0 +1,21 @@
+#container {
+ width:85%;
+ margin:auto;
+}
+#container h1{
+ font-family:Tahoma, Geneva, sans-serif;
+ font-weight:600;
+ text-align:center;
+}
+.sort {
+ padding:5px;
+ }
+.post {
+ border:5px solid #eaeaea;
+ margin-top:10px;
+}
+/*untuk responsive image*/
+.post img {
+ width:100%;
+ height:auto;
+}
