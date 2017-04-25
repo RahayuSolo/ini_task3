@@ -11,12 +11,16 @@
             @include('error-notification')
          </div>
       @endif
-	  
+	<div class="grid">
+
       @forelse($images as $image)
-            <div class="col-lg-12">
+        
+  <div class="grid-sizer"></div>
+  <div class="grid-item">
+    <img src="{{asset($image->id)}}">
+		<div class="col-lg-12">
         
             <div class="item">
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
 			<div align="center"><b>{{$image->caption}}</b></div>
                   <a class="thumbnail" href="#" data-image-id="{{asset($image->id)}}" data-toggle="modal" data-title="{{$image->caption}}" data-caption="{!! substr($image->description,0,100) !!}" data-image="{{asset($image->file)}}" data-href="{{ url('/image/'.$image->id.'/edit') }}"  data-href1="{{ url('/image/'.$image->id.'/delete') }}" data-target="#image-gallery">                 
                       <img class="img-responsive" src="{{asset($image->file)}}">
@@ -24,9 +28,9 @@
                   <div class="caption" align="center">
                   <p>{!! substr($image->description, 0,100) !!}</p>
                   <p>
-                     <div class="row text-center" style="padding-left:1em;" align="center">
+                     <div class="row text-center" style="padding-left:1em;" >
                      <a href="{{ url('/image/'.$image->id.'/edit') }}" class="btn btn-warning pull-left">Edit</a>
-                     <span class="pull-left">&nbsp;</span>
+                     <span class="pull-left" >&nbsp;</span>
                      {!! Form::open(['url'=>'/image/'.$image->id, 'class'=>'pull-left']) !!}
                         {!! Form::hidden('_method', 'DELETE') !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger', 'onclick'=>'return confirm(\'Are you sure?\')']) !!}
@@ -35,6 +39,7 @@
                   </p>
                </div>
               </div>
+			  
 			  
                <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
              <div class="modal-dialog">
@@ -71,6 +76,7 @@
       @endforelse
 
 
+</div>
 </div>
 
 
