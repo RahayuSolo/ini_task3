@@ -4,7 +4,7 @@ Route::get('/', function(){ return redirect('/image'); });
 
 Route::resource('/image', 'ImageController');
 
-Route::DELETE('image/', 'ImageController@destroy'); 
+Route::get ('delete','ImageController@delete')->name('delete'); 
 
 
 
